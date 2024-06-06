@@ -2,7 +2,7 @@ export default defineAppConfig({
     ui: {
         container: {
             default: {
-                color: 'write'
+                color: 'white'
             }
         },
         primary: 'white',

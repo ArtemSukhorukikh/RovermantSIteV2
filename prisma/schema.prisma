@@ -5,7 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
 }
 
 datasource db {
@@ -17,4 +18,23 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   password  String?
+  surname String
+  name String
+  patronymic String?
+  role Role @default(USER)
+  companies Company[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Company {
+  id Int @id @default(autoincrement())
+  name String
+  description String
+  data Json?
+  userId Int
+  user User @relation(fields: [userId], references: [id])
 }

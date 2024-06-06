@@ -12,6 +12,11 @@
   "dependencies": {
     "@nuxt/ui": "^2.16.0",
     "@prisma/client": "^5.14.0",
+    "bcrypt": "^5.1.1",
+    "bcrypt-ts": "^5.0.2",
+    "jose": "^5.3.0",
+    "node-jws": "^0.1.4",
+    "node-jws-file-provider": "^0.1.4",
     "nuxt": "^3.11.2",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"

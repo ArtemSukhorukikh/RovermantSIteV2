@@ -4,9 +4,16 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     '@pinia/nuxt',
+    'nuxt-file-storage'
   ],
   css: ['~/assets/css/main.css'],
   colorMode: {
     preference: 'light'
-  }
+  },
+  fileStorage: {
+    mount: process.env.mount
+  },
+  pinia: {
+    storesDirs: ['./store/**'],
+  },
 })

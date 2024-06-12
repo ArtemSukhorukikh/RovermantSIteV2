@@ -24,6 +24,7 @@
   "devDependencies": {
     "@pinia/nuxt": "^0.5.1",
     "@types/node": "^20.12.13",
+    "nuxt-file-storage": "^0.2.6",
     "pinia": "^2.1.7",
     "prisma": "^5.14.0",
     "ts-node": "^10.9.2",

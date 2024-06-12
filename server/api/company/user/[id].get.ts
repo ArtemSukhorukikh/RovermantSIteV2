@@ -3,10 +3,18 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 export default defineEventHandler(async (event) => {
     const id = getRouterParam(event, 'id')
+    console.log(id)
     if (!id) {
         throw createError({
-            status: 402,
+            status: 400,
             message: 'id не найден'
+        })
+    }
+    const user = await prisma.user.findFirst({where:{id:Number(id)}})
+    if (!user) {
+        throw createError({
+            status: 400,
+            message: 'Пользователь не найден'
         })
     }
 

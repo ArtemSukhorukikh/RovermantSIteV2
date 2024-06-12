@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware((to) => {
     if (token.value) {
       // check if value exists
       authenticated.value = true;
-      return navigateTo(to) // update the state to authenticated
+       // update the state to authenticated
     }
   
     // if token exists and url is /login redirect to homepage

@@ -14,7 +14,9 @@
         await authenticateUser(user.value); // call authenticateUser and pass the user object
         // redirect to homepage if user is authenticated
         if (authenticated) {
-            router.push('/');
+            router.push({
+                path: `/profile/${id.value}`,
+            });
         }
     };
 </script>

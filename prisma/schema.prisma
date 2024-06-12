@@ -38,3 +38,25 @@ model Company {
   userId Int
   user User @relation(fields: [userId], references: [id])
 }
+
+model StateProgram {
+  id Int @id @default(autoincrement())
+  name String
+  resource String
+  path String?
+  url String?
+  status ProgramStatus @default(NEEDINDEXED)
+  conditions Condition[]
+}
+
+enum ProgramStatus {
+  INDEXED
+  NEEDINDEXED
+}
+
+model Condition {
+  id Int @id @default(autoincrement())
+  programId Int
+  program StateProgram @relation(fields: [programId], references: [id])
+  condition String
+}

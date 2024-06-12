@@ -12,14 +12,23 @@ declare module 'nitropack' {
     '/api/company/create': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/create.post').default>>>>
     }
-    '/api/company/user.:id': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/user.[id].get').default>>>>
+    '/api/company/user/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/user/[id].get').default>>>>
     }
     '/api/login': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/login.post').default>>>>
     }
     '/api/register': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/register.post').default>>>>
+    }
+    '/api/stateProgram/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/[id].get').default>>>>
+    }
+    '/api/stateProgram/addCondition': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/addCondition.post').default>>>>
+    }
+    '/api/stateProgram/create': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/create.post').default>>>>
     }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>

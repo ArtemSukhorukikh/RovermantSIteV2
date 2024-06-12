@@ -140,7 +140,12 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {
+    "fileStorage": {
+      "mount": "D:\\Progs\\RovermantSIteV2\\files",
+      "version": "0.2.6"
+    }
+  }
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -864,21 +869,27 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-const _lazy_mZCP9W = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_mZCP9W = () => Promise.resolve().then(function () { return _id__get$5; });
 const _lazy_deT3Xg = () => Promise.resolve().then(function () { return all_get$1; });
-const _lazy_jW4jTZ = () => Promise.resolve().then(function () { return create_post$1; });
-const _lazy_Dx09mV = () => Promise.resolve().then(function () { return user__id__get$1; });
+const _lazy_jW4jTZ = () => Promise.resolve().then(function () { return create_post$3; });
+const _lazy_inrRNn = () => Promise.resolve().then(function () { return _id__get$3; });
 const _lazy_ZR1Kv4 = () => Promise.resolve().then(function () { return login_post$1; });
 const _lazy_uk7Wcc = () => Promise.resolve().then(function () { return register_post$1; });
+const _lazy_AeNmaD = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_AVKMME = () => Promise.resolve().then(function () { return addCondition_post$1; });
+const _lazy_Gt4iph = () => Promise.resolve().then(function () { return create_post$1; });
 const _lazy_gvrntU = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
   { route: '/api/company/:id', handler: _lazy_mZCP9W, lazy: true, middleware: false, method: "get" },
   { route: '/api/company/all', handler: _lazy_deT3Xg, lazy: true, middleware: false, method: "get" },
   { route: '/api/company/create', handler: _lazy_jW4jTZ, lazy: true, middleware: false, method: "post" },
-  { route: '/api/company/user.:id', handler: _lazy_Dx09mV, lazy: true, middleware: false, method: "get" },
+  { route: '/api/company/user/:id', handler: _lazy_inrRNn, lazy: true, middleware: false, method: "get" },
   { route: '/api/login', handler: _lazy_ZR1Kv4, lazy: true, middleware: false, method: "post" },
   { route: '/api/register', handler: _lazy_uk7Wcc, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stateProgram/:id', handler: _lazy_AeNmaD, lazy: true, middleware: false, method: "get" },
+  { route: '/api/stateProgram/addCondition', handler: _lazy_AVKMME, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stateProgram/create', handler: _lazy_Gt4iph, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_gvrntU, lazy: true, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_gvrntU, lazy: true, middleware: false, method: undefined }
 ];
@@ -1090,8 +1101,8 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const prisma$5 = new PrismaClient();
-const _id__get = defineEventHandler(async (event) => {
+const prisma$8 = new PrismaClient();
+const _id__get$4 = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   if (!id) {
     throw createError({
@@ -1099,7 +1110,7 @@ const _id__get = defineEventHandler(async (event) => {
       message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = prisma$5.company.findFirst({ where: { id: Number(id) } });
+  const company = prisma$8.company.findFirst({ where: { id: Number(id) } });
   if (company === null) {
     throw createError({
       status: 404,
@@ -1109,14 +1120,14 @@ const _id__get = defineEventHandler(async (event) => {
   return { company };
 });
 
-const _id__get$1 = /*#__PURE__*/Object.freeze({
+const _id__get$5 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: _id__get
+  default: _id__get$4
 });
 
-const prisma$4 = new PrismaClient();
+const prisma$7 = new PrismaClient();
 const all_get = defineEventHandler(async (event) => {
-  const companies = prisma$4.company.findMany();
+  const companies = prisma$7.company.findMany();
   return { companies };
 });
 
@@ -1125,17 +1136,17 @@ const all_get$1 = /*#__PURE__*/Object.freeze({
   default: all_get
 });
 
-const prisma$3 = new PrismaClient();
-const create_post = defineEventHandler(async (event) => {
+const prisma$6 = new PrismaClient();
+const create_post$2 = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const user = await prisma$3.user.findFirst({ where: { id: body.userId } });
+  const user = await prisma$6.user.findFirst({ where: { id: body.userId } });
   if (user === null) {
     throw createError({
       status: 404,
       message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = await prisma$3.company.create({
+  const company = await prisma$6.company.create({
     data: {
       name: body.name,
       description: body.description,
@@ -1145,21 +1156,29 @@ const create_post = defineEventHandler(async (event) => {
   return { company };
 });
 
-const create_post$1 = /*#__PURE__*/Object.freeze({
+const create_post$3 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: create_post
+  default: create_post$2
 });
 
-const prisma$2 = new PrismaClient();
-const user__id__get = defineEventHandler(async (event) => {
+const prisma$5 = new PrismaClient();
+const _id__get$2 = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
+  console.log(id);
   if (!id) {
     throw createError({
-      status: 402,
+      status: 400,
       message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = await prisma$2.company.findMany({
+  const user = await prisma$5.user.findFirst({ where: { id: Number(id) } });
+  if (!user) {
+    throw createError({
+      status: 400,
+      message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
+    });
+  }
+  const company = await prisma$5.company.findMany({
     include: {
       user: true
     },
@@ -1174,9 +1193,9 @@ const user__id__get = defineEventHandler(async (event) => {
   return { company };
 });
 
-const user__id__get$1 = /*#__PURE__*/Object.freeze({
+const _id__get$3 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: user__id__get
+  default: _id__get$2
 });
 
 const secret = new TextEncoder().encode(
@@ -1188,10 +1207,10 @@ async function sing(payload) {
   return jwt;
 }
 
-const prisma$1 = new PrismaClient();
+const prisma$4 = new PrismaClient();
 const login_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const user = await prisma$1.user.findUnique({ where: {
+  const user = await prisma$4.user.findUnique({ where: {
     email: body.email
   } });
   if (user === null) {
@@ -1215,14 +1234,14 @@ const login_post$1 = /*#__PURE__*/Object.freeze({
   default: login_post
 });
 
-const prisma = new PrismaClient();
+const prisma$3 = new PrismaClient();
 const register_post = defineEventHandler(async (event) => {
   var _a;
   const body = await readBody(event);
   console.log(body);
   const salt = genSaltSync(10);
   const hashPassowrd = hashSync(body.password, salt);
-  let user = prisma.user.findUnique({
+  let user = prisma$3.user.findUnique({
     where: {
       email: body.email
     }
@@ -1231,7 +1250,7 @@ const register_post = defineEventHandler(async (event) => {
     setResponseStatus(event, 500, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0441 \u0442\u0430\u043A\u0438\u043C\u0438 email \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442");
     return;
   }
-  const newUser = await prisma.user.create({
+  const newUser = await prisma$3.user.create({
     data: {
       email: body.email,
       password: hashPassowrd,
@@ -1259,6 +1278,86 @@ const register_post = defineEventHandler(async (event) => {
 const register_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: register_post
+});
+
+const prisma$2 = new PrismaClient();
+const _id__get = defineEventHandler(async (event) => {
+  const id = getRouterParam(event, "id");
+  if (!id) {
+    throw createError({
+      status: 402,
+      message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
+    });
+  }
+  const statePrograms = prisma$2.stateProgram.findFirst({
+    where: { id: Number(id) }
+  });
+  return statePrograms;
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__get
+});
+
+const prisma$1 = new PrismaClient();
+const addCondition_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  if (!body.programId) {
+    throw createError({
+      status: 402,
+      message: "id \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
+    });
+  }
+  const stateProg = await prisma$1.stateProgram.findFirst({
+    where: {
+      id: body.programId
+    }
+  });
+  if (!stateProg) {
+    throw createError({
+      status: 404,
+      message: "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u0430"
+    });
+  }
+  const condition = prisma$1.condition.create({ data: {
+    programId: stateProg.id,
+    condition: body.condition
+  } });
+  return condition;
+});
+
+const addCondition_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: addCondition_post
+});
+
+const prisma = new PrismaClient();
+const create_post = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const state = await prisma.stateProgram.create({
+    data: {
+      name: body.name,
+      resource: body.resource,
+      url: body.url
+    }
+  });
+  if (body.conditions) {
+    for (const condition of body.conditions) {
+      await prisma.condition.create({
+        data: {
+          condition: condition.condition,
+          programId: state.id
+        }
+      });
+    }
+  }
+  return state;
+});
+
+const create_post$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: create_post
 });
 
 const Vue3 = version.startsWith("3");

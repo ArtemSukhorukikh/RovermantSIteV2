@@ -3,32 +3,32 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://D:/Progs/RovermantSIteV2/node_modules/h3/dist/index.mjs';
-import { PrismaClient } from 'file://D:/Progs/RovermantSIteV2/node_modules/@prisma/client/default.js';
-import { compareSync, genSaltSync, hashSync } from 'file://D:/Progs/RovermantSIteV2/node_modules/bcrypt-ts/dist/node.mjs';
-import * as jose from 'file://D:/Progs/RovermantSIteV2/node_modules/jose/dist/node/esm/index.js';
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://D:/Progs/RovermantSIteV2/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { stringify, uneval } from 'file://D:/Progs/RovermantSIteV2/node_modules/devalue/index.js';
-import destr from 'file://D:/Progs/RovermantSIteV2/node_modules/destr/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://D:/Progs/RovermantSIteV2/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file://D:/Progs/RovermantSIteV2/node_modules/vue/server-renderer/index.mjs';
-import { hash } from 'file://D:/Progs/RovermantSIteV2/node_modules/ohash/dist/index.mjs';
-import { renderSSRHead } from 'file://D:/Progs/RovermantSIteV2/node_modules/@unhead/ssr/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Progs/RovermantSIteV2/node_modules/ofetch/dist/node.mjs';
-import { createCall, createFetch } from 'file://D:/Progs/RovermantSIteV2/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/Progs/RovermantSIteV2/node_modules/hookable/dist/index.mjs';
-import { klona } from 'file://D:/Progs/RovermantSIteV2/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file://D:/Progs/RovermantSIteV2/node_modules/scule/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/Progs/RovermantSIteV2/node_modules/defu/dist/defu.mjs';
-import { createStorage, prefixStorage } from 'file://D:/Progs/RovermantSIteV2/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/Progs/RovermantSIteV2/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/Progs/RovermantSIteV2/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, createError, setResponseHeader, send, getResponseStatus, setResponseStatus, setResponseHeaders, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, getQuery as getQuery$1, readBody, getResponseStatusText } from 'file://G:/ProgramsSiteV2/node_modules/h3/dist/index.mjs';
+import { PrismaClient } from 'file://G:/ProgramsSiteV2/node_modules/@prisma/client/default.js';
+import { compareSync, genSaltSync, hashSync } from 'file://G:/ProgramsSiteV2/node_modules/bcrypt-ts/dist/node.mjs';
+import * as jose from 'file://G:/ProgramsSiteV2/node_modules/jose/dist/node/esm/index.js';
+import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'file://G:/ProgramsSiteV2/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { stringify, uneval } from 'file://G:/ProgramsSiteV2/node_modules/devalue/index.js';
+import destr from 'file://G:/ProgramsSiteV2/node_modules/destr/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://G:/ProgramsSiteV2/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://G:/ProgramsSiteV2/node_modules/vue/server-renderer/index.mjs';
+import { hash } from 'file://G:/ProgramsSiteV2/node_modules/ohash/dist/index.mjs';
+import { renderSSRHead } from 'file://G:/ProgramsSiteV2/node_modules/@unhead/ssr/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://G:/ProgramsSiteV2/node_modules/ofetch/dist/node.mjs';
+import { createCall, createFetch } from 'file://G:/ProgramsSiteV2/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://G:/ProgramsSiteV2/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file://G:/ProgramsSiteV2/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file://G:/ProgramsSiteV2/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file://G:/ProgramsSiteV2/node_modules/defu/dist/defu.mjs';
+import { createStorage, prefixStorage } from 'file://G:/ProgramsSiteV2/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://G:/ProgramsSiteV2/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://G:/ProgramsSiteV2/node_modules/radix3/dist/index.mjs';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { consola } from 'file://D:/Progs/RovermantSIteV2/node_modules/consola/dist/index.mjs';
-import { getContext } from 'file://D:/Progs/RovermantSIteV2/node_modules/unctx/dist/index.mjs';
-import { version, unref } from 'file://D:/Progs/RovermantSIteV2/node_modules/vue/index.mjs';
-import { createServerHead as createServerHead$1 } from 'file://D:/Progs/RovermantSIteV2/node_modules/unhead/dist/index.mjs';
-import { defineHeadPlugin } from 'file://D:/Progs/RovermantSIteV2/node_modules/@unhead/shared/dist/index.mjs';
+import { consola } from 'file://G:/ProgramsSiteV2/node_modules/consola/dist/index.mjs';
+import { getContext } from 'file://G:/ProgramsSiteV2/node_modules/unctx/dist/index.mjs';
+import { version, unref } from 'file://G:/ProgramsSiteV2/node_modules/vue/index.mjs';
+import { createServerHead as createServerHead$1 } from 'file://G:/ProgramsSiteV2/node_modules/unhead/dist/index.mjs';
+import { defineHeadPlugin } from 'file://G:/ProgramsSiteV2/node_modules/@unhead/shared/dist/index.mjs';
 
 const r=Object.create(null),E=e=>globalThis.process?.env||globalThis._importMeta_.env||globalThis.Deno?.env.toObject()||globalThis.__env__||(e?r:globalThis),s=new Proxy(r,{get(e,o){return E()[o]??r[o]},has(e,o){const i=E();return o in i||o in r},set(e,o,i){const g=E(!0);return g[o]=i,!0},deleteProperty(e,o){if(!o)return !1;const i=E(!0);return delete i[o],!0},ownKeys(){const e=E(!0);return Object.keys(e)}}),t=typeof process<"u"&&process.env&&"development"||"",p=[["APPVEYOR"],["AWS_AMPLIFY","AWS_APP_ID",{ci:!0}],["AZURE_PIPELINES","SYSTEM_TEAMFOUNDATIONCOLLECTIONURI"],["AZURE_STATIC","INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN"],["APPCIRCLE","AC_APPCIRCLE"],["BAMBOO","bamboo_planKey"],["BITBUCKET","BITBUCKET_COMMIT"],["BITRISE","BITRISE_IO"],["BUDDY","BUDDY_WORKSPACE_ID"],["BUILDKITE"],["CIRCLE","CIRCLECI"],["CIRRUS","CIRRUS_CI"],["CLOUDFLARE_PAGES","CF_PAGES",{ci:!0}],["CODEBUILD","CODEBUILD_BUILD_ARN"],["CODEFRESH","CF_BUILD_ID"],["DRONE"],["DRONE","DRONE_BUILD_EVENT"],["DSARI"],["GITHUB_ACTIONS"],["GITLAB","GITLAB_CI"],["GITLAB","CI_MERGE_REQUEST_ID"],["GOCD","GO_PIPELINE_LABEL"],["LAYERCI"],["HUDSON","HUDSON_URL"],["JENKINS","JENKINS_URL"],["MAGNUM"],["NETLIFY"],["NETLIFY","NETLIFY_LOCAL",{ci:!1}],["NEVERCODE"],["RENDER"],["SAIL","SAILCI"],["SEMAPHORE"],["SCREWDRIVER"],["SHIPPABLE"],["SOLANO","TDDIUM"],["STRIDER"],["TEAMCITY","TEAMCITY_VERSION"],["TRAVIS"],["VERCEL","NOW_BUILDER"],["VERCEL","VERCEL",{ci:!1}],["VERCEL","VERCEL_ENV",{ci:!1}],["APPCENTER","APPCENTER_BUILD_ID"],["CODESANDBOX","CODESANDBOX_SSE",{ci:!1}],["STACKBLITZ"],["STORMKIT"],["CLEAVR"],["ZEABUR"],["CODESPHERE","CODESPHERE_APP_ID",{ci:!0}],["RAILWAY","RAILWAY_PROJECT_ID"],["RAILWAY","RAILWAY_SERVICE_ID"]];function B(){if(globalThis.process?.env)for(const e of p){const o=e[1]||e[0];if(globalThis.process?.env[o])return {name:e[0].toLowerCase(),...e[2]}}return globalThis.process?.env?.SHELL==="/bin/jsh"&&globalThis.process?.versions?.webcontainer?{name:"stackblitz",ci:!1}:{name:"",ci:!1}}const l=B(),d=l.name;function n(e){return e?e!=="false":!1}const I=globalThis.process?.platform||"",T=n(s.CI)||l.ci!==!1,R=n(globalThis.process?.stdout&&globalThis.process?.stdout.isTTY);n(s.DEBUG);const C=t==="test"||n(s.TEST);n(s.MINIMAL)||T||C||!R;const a=/^win/i.test(I);!n(s.NO_COLOR)&&(n(s.FORCE_COLOR)||(R||a)&&s.TERM!=="dumb"||T);const _=(globalThis.process?.versions?.node||"").replace(/^v/,"")||null;Number(_?.split(".")[0])||null;const W=globalThis.process||Object.create(null),c={versions:{}};new Proxy(W,{get(e,o){if(o==="env")return s;if(o in e)return e[o];if(o in c)return c[o]}});const A=globalThis.process?.release?.name==="node",L=!!globalThis.Bun||!!globalThis.process?.versions?.bun,D=!!globalThis.Deno,O=!!globalThis.fastly,S=!!globalThis.Netlify,N=!!globalThis.EdgeRuntime,u=globalThis.navigator?.userAgent==="Cloudflare-Workers",b=!!globalThis.__lagon__,F=[[S,"netlify"],[N,"edge-light"],[u,"workerd"],[O,"fastly"],[D,"deno"],[L,"bun"],[A,"node"],[b,"lagon"]];function G(){const e=F.find(o=>o[0]);if(e)return {name:e[1]}}const P=G();P?.name||"";
 
@@ -191,7 +191,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/Progs/RovermantSIteV2/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"G:/ProgramsSiteV2/server/assets"}];
 
 const assets = createStorage();
 
@@ -203,11 +203,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Progs\\RovermantSIteV2","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Progs\\RovermantSIteV2\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Progs\\RovermantSIteV2\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Progs\\RovermantSIteV2\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Progs\\RovermantSIteV2\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"G:\\ProgramsSiteV2","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"G:\\ProgramsSiteV2\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"G:\\ProgramsSiteV2\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"G:\\ProgramsSiteV2\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"G:\\ProgramsSiteV2\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -654,16 +654,16 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _Bdu37y90x1 = (function(nitro) {
+const _ZCw5PMI0QD = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script$1}<\/script>`);
   });
 });
 
-const rootDir = "D:/Progs/RovermantSIteV2";
+const rootDir = "G:/ProgramsSiteV2";
 
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _OLxOhNHtzj = (nitroApp) => {
+const _l5jJe1Rvh1 = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -730,16 +730,16 @@ function onConsoleLog(callback) {
 
 const script = "\"use strict\";(()=>{const a=window,e=document.documentElement,c=window.localStorage,d=[\"dark\",\"light\"],n=c&&c.getItem&&c.getItem(\"nuxt-color-mode\")||\"light\";let l=n===\"system\"?f():n;const i=e.getAttribute(\"data-color-mode-forced\");i&&(l=i),r(l),a[\"__NUXT_COLOR_MODE__\"]={preference:n,value:l,getColorScheme:f,addColorScheme:r,removeColorScheme:u};function r(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.add(t):e.className+=\" \"+t,s&&e.setAttribute(\"data-\"+s,o)}function u(o){const t=\"\"+o+\"\",s=\"\";e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp(t,\"g\"),\"\"),s&&e.removeAttribute(\"data-\"+s)}function m(o){return a.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function f(){if(a.matchMedia&&m(\"\").media!==\"not all\"){for(const o of d)if(m(\":\"+o).matches)return o}return\"light\"}})();\n";
 
-const _hCGAnuMOZq = (function(nitro) {
+const _9eXJGZXeCE = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
 const plugins = [
-  _Bdu37y90x1,
-_OLxOhNHtzj,
-_hCGAnuMOZq
+  _ZCw5PMI0QD,
+_l5jJe1Rvh1,
+_9eXJGZXeCE
 ];
 
 const scheduledTasks = false;
@@ -869,29 +869,31 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-const _lazy_mZCP9W = () => Promise.resolve().then(function () { return _id__get$5; });
-const _lazy_deT3Xg = () => Promise.resolve().then(function () { return all_get$1; });
-const _lazy_jW4jTZ = () => Promise.resolve().then(function () { return create_post$3; });
-const _lazy_inrRNn = () => Promise.resolve().then(function () { return _id__get$3; });
-const _lazy_ZR1Kv4 = () => Promise.resolve().then(function () { return login_post$1; });
-const _lazy_uk7Wcc = () => Promise.resolve().then(function () { return register_post$1; });
-const _lazy_AeNmaD = () => Promise.resolve().then(function () { return _id__get$1; });
-const _lazy_AVKMME = () => Promise.resolve().then(function () { return addCondition_post$1; });
-const _lazy_Gt4iph = () => Promise.resolve().then(function () { return create_post$1; });
-const _lazy_gvrntU = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_bhVGwA = () => Promise.resolve().then(function () { return _id__get$7; });
+const _lazy_J5NhbO = () => Promise.resolve().then(function () { return all_get$1; });
+const _lazy_jWkIj3 = () => Promise.resolve().then(function () { return create_post$3; });
+const _lazy_fCK1to = () => Promise.resolve().then(function () { return _id__get$5; });
+const _lazy_PYXFHb = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_BVWktj = () => Promise.resolve().then(function () { return register_post$1; });
+const _lazy_6TfMNF = () => Promise.resolve().then(function () { return _id__get$3; });
+const _lazy_h9u5w0 = () => Promise.resolve().then(function () { return addCondition_post$1; });
+const _lazy_m33m01 = () => Promise.resolve().then(function () { return create_post$1; });
+const _lazy_AAYEoK = () => Promise.resolve().then(function () { return _id__get$1; });
+const _lazy_P0jYr6 = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/api/company/:id', handler: _lazy_mZCP9W, lazy: true, middleware: false, method: "get" },
-  { route: '/api/company/all', handler: _lazy_deT3Xg, lazy: true, middleware: false, method: "get" },
-  { route: '/api/company/create', handler: _lazy_jW4jTZ, lazy: true, middleware: false, method: "post" },
-  { route: '/api/company/user/:id', handler: _lazy_inrRNn, lazy: true, middleware: false, method: "get" },
-  { route: '/api/login', handler: _lazy_ZR1Kv4, lazy: true, middleware: false, method: "post" },
-  { route: '/api/register', handler: _lazy_uk7Wcc, lazy: true, middleware: false, method: "post" },
-  { route: '/api/stateProgram/:id', handler: _lazy_AeNmaD, lazy: true, middleware: false, method: "get" },
-  { route: '/api/stateProgram/addCondition', handler: _lazy_AVKMME, lazy: true, middleware: false, method: "post" },
-  { route: '/api/stateProgram/create', handler: _lazy_Gt4iph, lazy: true, middleware: false, method: "post" },
-  { route: '/__nuxt_error', handler: _lazy_gvrntU, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_gvrntU, lazy: true, middleware: false, method: undefined }
+  { route: '/api/company/:id', handler: _lazy_bhVGwA, lazy: true, middleware: false, method: "get" },
+  { route: '/api/company/all', handler: _lazy_J5NhbO, lazy: true, middleware: false, method: "get" },
+  { route: '/api/company/create', handler: _lazy_jWkIj3, lazy: true, middleware: false, method: "post" },
+  { route: '/api/company/user/:id', handler: _lazy_fCK1to, lazy: true, middleware: false, method: "get" },
+  { route: '/api/login', handler: _lazy_PYXFHb, lazy: true, middleware: false, method: "post" },
+  { route: '/api/register', handler: _lazy_BVWktj, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stateProgram/:id', handler: _lazy_6TfMNF, lazy: true, middleware: false, method: "get" },
+  { route: '/api/stateProgram/addCondition', handler: _lazy_h9u5w0, lazy: true, middleware: false, method: "post" },
+  { route: '/api/stateProgram/create', handler: _lazy_m33m01, lazy: true, middleware: false, method: "post" },
+  { route: '/api/user/:id', handler: _lazy_AAYEoK, lazy: true, middleware: false, method: "get" },
+  { route: '/__nuxt_error', handler: _lazy_P0jYr6, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_P0jYr6, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -1101,8 +1103,8 @@ const errorDev = /*#__PURE__*/Object.freeze({
   template: template$1
 });
 
-const prisma$8 = new PrismaClient();
-const _id__get$4 = defineEventHandler(async (event) => {
+const prisma$9 = new PrismaClient();
+const _id__get$6 = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   if (!id) {
     throw createError({
@@ -1110,7 +1112,7 @@ const _id__get$4 = defineEventHandler(async (event) => {
       message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = prisma$8.company.findFirst({ where: { id: Number(id) } });
+  const company = prisma$9.company.findFirst({ where: { id: Number(id) } });
   if (company === null) {
     throw createError({
       status: 404,
@@ -1120,14 +1122,14 @@ const _id__get$4 = defineEventHandler(async (event) => {
   return { company };
 });
 
-const _id__get$5 = /*#__PURE__*/Object.freeze({
+const _id__get$7 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: _id__get$4
+  default: _id__get$6
 });
 
-const prisma$7 = new PrismaClient();
+const prisma$8 = new PrismaClient();
 const all_get = defineEventHandler(async (event) => {
-  const companies = prisma$7.company.findMany();
+  const companies = prisma$8.company.findMany();
   return { companies };
 });
 
@@ -1136,17 +1138,17 @@ const all_get$1 = /*#__PURE__*/Object.freeze({
   default: all_get
 });
 
-const prisma$6 = new PrismaClient();
+const prisma$7 = new PrismaClient();
 const create_post$2 = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const user = await prisma$6.user.findFirst({ where: { id: body.userId } });
+  const user = await prisma$7.user.findFirst({ where: { id: body.userId } });
   if (user === null) {
     throw createError({
       status: 404,
       message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = await prisma$6.company.create({
+  const company = await prisma$7.company.create({
     data: {
       name: body.name,
       description: body.description,
@@ -1161,8 +1163,8 @@ const create_post$3 = /*#__PURE__*/Object.freeze({
   default: create_post$2
 });
 
-const prisma$5 = new PrismaClient();
-const _id__get$2 = defineEventHandler(async (event) => {
+const prisma$6 = new PrismaClient();
+const _id__get$4 = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   console.log(id);
   if (!id) {
@@ -1171,14 +1173,14 @@ const _id__get$2 = defineEventHandler(async (event) => {
       message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const user = await prisma$5.user.findFirst({ where: { id: Number(id) } });
+  const user = await prisma$6.user.findFirst({ where: { id: Number(id) } });
   if (!user) {
     throw createError({
       status: 400,
       message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const company = await prisma$5.company.findMany({
+  const company = await prisma$6.company.findMany({
     include: {
       user: true
     },
@@ -1193,9 +1195,9 @@ const _id__get$2 = defineEventHandler(async (event) => {
   return { company };
 });
 
-const _id__get$3 = /*#__PURE__*/Object.freeze({
+const _id__get$5 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: _id__get$2
+  default: _id__get$4
 });
 
 const secret = new TextEncoder().encode(
@@ -1207,10 +1209,10 @@ async function sing(payload) {
   return jwt;
 }
 
-const prisma$4 = new PrismaClient();
+const prisma$5 = new PrismaClient();
 const login_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const user = await prisma$4.user.findUnique({ where: {
+  const user = await prisma$5.user.findUnique({ where: {
     email: body.email
   } });
   if (user === null) {
@@ -1234,23 +1236,26 @@ const login_post$1 = /*#__PURE__*/Object.freeze({
   default: login_post
 });
 
-const prisma$3 = new PrismaClient();
+const prisma$4 = new PrismaClient();
 const register_post = defineEventHandler(async (event) => {
   var _a;
   const body = await readBody(event);
   console.log(body);
   const salt = genSaltSync(10);
   const hashPassowrd = hashSync(body.password, salt);
-  let user = prisma$3.user.findUnique({
+  let user = await prisma$4.user.findFirst({
     where: {
       email: body.email
     }
   });
+  console.log(user);
   if (user !== null) {
-    setResponseStatus(event, 500, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0441 \u0442\u0430\u043A\u0438\u043C\u0438 email \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442");
-    return;
+    throw createError({
+      status: 500,
+      message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0441 \u0442\u0430\u043A\u043E\u0439 \u043F\u043E\u0447\u0442\u043E\u0439 \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0431"
+    });
   }
-  const newUser = await prisma$3.user.create({
+  const newUser = await prisma$4.user.create({
     data: {
       email: body.email,
       password: hashPassowrd,
@@ -1259,9 +1264,11 @@ const register_post = defineEventHandler(async (event) => {
       patronymic: (_a = body.patronymic) != null ? _a : null
     }
   });
-  if (user === null) {
-    setResponseStatus(event, 500, "\u041E\u0448\u0438\u0431\u043A\u0430 \u043F\u0440\u0438 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F");
-    return;
+  if (newUser === null) {
+    throw createError({
+      status: 502,
+      message: "\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F"
+    });
   }
   const id = (await newUser).id;
   if (id) {
@@ -1271,8 +1278,10 @@ const register_post = defineEventHandler(async (event) => {
       token: stringToken
     };
   }
-  setResponseStatus(event, 500, "\u041E\u0448\u0438\u0431\u043A\u0430 \u043F\u0440\u0438 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438");
-  return;
+  throw createError({
+    status: 502,
+    message: "\u041E\u0448\u0438\u0431\u043A\u0430 \u0432 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0438 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F"
+  });
 });
 
 const register_post$1 = /*#__PURE__*/Object.freeze({
@@ -1280,8 +1289,8 @@ const register_post$1 = /*#__PURE__*/Object.freeze({
   default: register_post
 });
 
-const prisma$2 = new PrismaClient();
-const _id__get = defineEventHandler(async (event) => {
+const prisma$3 = new PrismaClient();
+const _id__get$2 = defineEventHandler(async (event) => {
   const id = getRouterParam(event, "id");
   if (!id) {
     throw createError({
@@ -1289,18 +1298,18 @@ const _id__get = defineEventHandler(async (event) => {
       message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const statePrograms = prisma$2.stateProgram.findFirst({
+  const statePrograms = prisma$3.stateProgram.findFirst({
     where: { id: Number(id) }
   });
   return statePrograms;
 });
 
-const _id__get$1 = /*#__PURE__*/Object.freeze({
+const _id__get$3 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: _id__get
+  default: _id__get$2
 });
 
-const prisma$1 = new PrismaClient();
+const prisma$2 = new PrismaClient();
 const addCondition_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
   if (!body.programId) {
@@ -1309,7 +1318,7 @@ const addCondition_post = defineEventHandler(async (event) => {
       message: "id \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
     });
   }
-  const stateProg = await prisma$1.stateProgram.findFirst({
+  const stateProg = await prisma$2.stateProgram.findFirst({
     where: {
       id: body.programId
     }
@@ -1320,7 +1329,7 @@ const addCondition_post = defineEventHandler(async (event) => {
       message: "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0430 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u0430"
     });
   }
-  const condition = prisma$1.condition.create({ data: {
+  const condition = prisma$2.condition.create({ data: {
     programId: stateProg.id,
     condition: body.condition
   } });
@@ -1332,10 +1341,10 @@ const addCondition_post$1 = /*#__PURE__*/Object.freeze({
   default: addCondition_post
 });
 
-const prisma = new PrismaClient();
+const prisma$1 = new PrismaClient();
 const create_post = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const state = await prisma.stateProgram.create({
+  const state = await prisma$1.stateProgram.create({
     data: {
       name: body.name,
       resource: body.resource,
@@ -1344,7 +1353,7 @@ const create_post = defineEventHandler(async (event) => {
   });
   if (body.conditions) {
     for (const condition of body.conditions) {
-      await prisma.condition.create({
+      await prisma$1.condition.create({
         data: {
           condition: condition.condition,
           programId: state.id
@@ -1358,6 +1367,30 @@ const create_post = defineEventHandler(async (event) => {
 const create_post$1 = /*#__PURE__*/Object.freeze({
   __proto__: null,
   default: create_post
+});
+
+const prisma = new PrismaClient();
+const _id__get = defineEventHandler(async (event) => {
+  const id = getRouterParam(event, "id");
+  if (!id) {
+    throw createError({
+      status: 402,
+      message: "id \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
+    });
+  }
+  const user = prisma.user.findFirst({ where: { id: Number(id) } });
+  if (user === null) {
+    throw createError({
+      status: 404,
+      message: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D"
+    });
+  }
+  return { user };
+});
+
+const _id__get$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id__get
 });
 
 const Vue3 = version.startsWith("3");
@@ -1440,8 +1473,8 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file://D:/Progs/RovermantSIteV2/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file://D:/Progs/RovermantSIteV2/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://G:/ProgramsSiteV2/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://G:/ProgramsSiteV2/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();

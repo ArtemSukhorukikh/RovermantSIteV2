@@ -9,14 +9,17 @@ export default defineEventHandler(async (event) => {
 
     const salt = genSaltSync(10)
     const hashPassowrd = hashSync(body.password, salt)
-    let user = prisma.user.findUnique({
+    let user = await prisma.user.findFirst({
         where: {
             email: body.email
         }
     })
+    console.log(user)
     if (user !== null) {
-        setResponseStatus(event, 500, 'Пользователь с такими email уже существует')
-        return
+        throw createError({
+            status: 500,
+            message: 'Пользователь с такой почтой уже существуеб'
+        })
     }
     const newUser = await prisma.user.create({
         data: {
@@ -27,9 +30,11 @@ export default defineEventHandler(async (event) => {
             patronymic: body.patronymic ?? null
         }
     })
-    if (user === null) {
-        setResponseStatus(event, 500, 'Ошибка при создании пользователя')
-        return
+    if (newUser === null) {
+        throw createError({
+            status: 502,
+            message: 'Ошибка в создании пользователя'
+        })
     }
     const id = (await newUser).id
     if (id) {
@@ -39,6 +44,8 @@ export default defineEventHandler(async (event) => {
             token: stringToken
         }
     }
-    setResponseStatus(event, 500, 'Ошибка при регистрации')
-    return
+    throw createError({
+        status: 502,
+        message: 'Ошибка в создании пользователя'
+    })
 })

@@ -30,6 +30,9 @@ declare module 'nitropack' {
     '/api/stateProgram/create': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/create.post').default>>>>
     }
+    '/api/user/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/user/[id].get').default>>>>
+    }
     '/__nuxt_error': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt/dist/core/runtime/nitro/renderer').default>>>>
     }

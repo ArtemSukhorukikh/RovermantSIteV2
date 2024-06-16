@@ -12,8 +12,14 @@ declare module 'nitropack' {
     '/api/company/create': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/create.post').default>>>>
     }
+    '/api/company/delete': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/delete.post').default>>>>
+    }
     '/api/company/user/:id': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/user/[id].get').default>>>>
+    }
+    '/api/company/user/full/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/user/full/[id].get').default>>>>
     }
     '/api/login': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/login.post').default>>>>
@@ -29,6 +35,9 @@ declare module 'nitropack' {
     }
     '/api/stateProgram/create': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/create.post').default>>>>
+    }
+    '/api/stateProgram/user/:id': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/stateProgram/user/[id].get').default>>>>
     }
     '/api/user/:id': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/user/[id].get').default>>>>

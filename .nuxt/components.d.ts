@@ -1,6 +1,9 @@
 
 interface _GlobalComponents {
-      'UserPage': typeof import("../components/UserPage.vue")['default']
+      'CompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+    'FullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
+    'UserCompanies': typeof import("../components/UserCompanies.vue")['default']
+    'UserPage': typeof import("../components/UserPage.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'UAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
     'UAvatar': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -76,7 +79,10 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'UModals': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyUserPage': typeof import("../components/UserPage.vue")['default']
+      'LazyCompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+    'LazyFullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
+    'LazyUserCompanies': typeof import("../components/UserCompanies.vue")['default']
+    'LazyUserPage': typeof import("../components/UserPage.vue")['default']
     'LazyUAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
     'LazyUAlert': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
     'LazyUAvatar': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Avatar.vue")['default']
@@ -166,6 +172,9 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const CompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
+export const FullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
+export const UserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const UserPage: typeof import("../components/UserPage.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const UAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']
@@ -242,6 +251,9 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const UModals: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const LazyCompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
+export const LazyFullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
+export const LazyUserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const LazyUserPage: typeof import("../components/UserPage.vue")['default']
 export const LazyUAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
 export const LazyUAlert: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Alert.vue")['default']

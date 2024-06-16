@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 interface UserPayloadInterface {
   username: string;
@@ -8,17 +8,17 @@ interface UserPayloadInterface {
   patronymic: string | null;
 }
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore("auth", {
   state: () => ({
     authenticated: false,
     loading: false,
-    id: null
+    id: null,
   }),
   actions: {
     async authenticateUser({ username, password }: UserPayloadInterface) {
-      const { id, token }: any = await $fetch('/api/login', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
+      const { id, token }: any = await $fetch("/api/login", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
         body: {
           email: username,
           password: password,
@@ -27,37 +27,43 @@ export const useAuthStore = defineStore('auth', {
       this.loading = false;
 
       if (id) {
-        const tokenCookie = useCookie('token');
+        const tokenCookie = useCookie("token");
         tokenCookie.value = token;
-        console.log(tokenCookie)
+        console.log(tokenCookie);
         this.authenticated = true;
-        this.id = id
+        this.id = id;
       }
     },
 
-    async registrateUser({ username, password, name, patronymic, surname }: UserPayloadInterface) {
-      const { id, token }: any = await $fetch('/api/register', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
+    async registrateUser({
+      username,
+      password,
+      name,
+      patronymic,
+      surname,
+    }: UserPayloadInterface) {
+      const { id, token }: any = await $fetch("/api/register", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
         body: {
           email: username,
           password: password,
           name: name,
           surname: surname,
-          patronymic: patronymic ?? null
+          patronymic: patronymic ?? null,
         },
       });
       this.loading = false;
 
       if (id) {
-        const tokenCookie = useCookie('token');
+        const tokenCookie = useCookie("token");
         tokenCookie.value = token;
         this.authenticated = true;
-        this.id = id
+        this.id = id;
       }
     },
     logUserOut() {
-      const token = useCookie('token');
+      const token = useCookie("token");
       this.authenticated = false;
       this.id = null;
       token.value = null;

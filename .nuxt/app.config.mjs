@@ -40,6 +40,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "G:/ProgramsSiteV2/app.config.ts"
+import cfg0 from "D:/Progs/RovermantSIteV2/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

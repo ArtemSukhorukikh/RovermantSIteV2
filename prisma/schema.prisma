@@ -37,6 +37,7 @@ model Company {
   data Json?
   userId Int
   user User @relation(fields: [userId], references: [id])
+  conditions CompanyCondition[]
 }
 
 model StateProgram {
@@ -59,4 +60,14 @@ model Condition {
   programId Int
   program StateProgram @relation(fields: [programId], references: [id])
   condition String
+  CompanyCondition CompanyCondition[]
+}
+
+model CompanyCondition {
+  companyId   Int
+  conditionId Int
+  company     Company      @relation(fields: [companyId], references: [id])
+  condition   Condition    @relation(fields: [conditionId], references: [id])
+
+  @@id([companyId, conditionId])
 }

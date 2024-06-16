@@ -3,7 +3,7 @@
 // App Config
 import type { Defu } from 'defu'
 
-import type { default as appConfig0 } from "D:/Progs/RovermantSIteV2/app.config";
+import type { default as appConfig0 } from "G:/ProgramsSiteV2/app.config";
 
 type UserAppConfig = Defu<{}, [typeof appConfig0]>
 

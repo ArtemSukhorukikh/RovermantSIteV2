@@ -5,45 +5,78 @@
     definePageMeta({
         middleware: [
             'auth'
-        ]
+        ],
+        validate: async (route) => {
+            // Check if the id is made up of digits
+            return typeof route.params.id === 'string' && /^\d+$/.test(route.params.id)
+        }
     })
+    
     console.log('setup')
-
-    const {id} = useAuthStore();
+    const route = useRoute()
+    const id = Number(route.params.id);
     const { getCompanies } = useCompaniesStore();
 
-    if (id) {
-        getCompanies(id)
-    }
+    const companies = await getCompanies(id)
+    const countCompanies = companies?.length
+    const countProgs = 4
 
-    const items = [{
-        key: 'companies',
-        label: 'Account',
-        description: 'Make changes to your account here. Click save when you\'re done.'
-        }, {
-        key: 'programs',
-        label: 'Password',
-        description: 'Change your password here. After saving, you\'ll be logged out.'
-    }]
+    const { data: user } = await useFetch(`/api/user/${id}`)
+    console.log()
+
+    const items = [
+        {
+            key: 'companies',
+            label: 'Предприятия',
+        }, 
+        {
+            key: 'programs',
+            label: 'Доступные для участия госпрограммы',
+        },
+        {
+            key: 'programsAll',
+            label: 'Все госпрограммы',
+        }
+    ]
 </script>
 
 <template>
-    <UContainer>
-        <!-- <UTabs :items="items" class="w-full">
-            <template #default="{ item, index, selected }">
-                <template #header>
-                    <p class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-                        {{ item.label }}
-                    </p>
-                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                        {{ item.description }}
-                    </p>
-                </template>
-
-                <div v-if="item.key == 'companies'">
-                    Предпрития
+    <UContainer class="mt-32">
+        <div class="grid">
+            <div class="row-start-1 col-span-1 max-w-56">
+                <div class="block">
+                    <UIcon name="i-mdi-account-circle-outline" class="w-6 h-6" dynamic />
+                    {{ user.surname }} {{ user.name }} {{ user.patronymic }}
                 </div>
-            </template>
-        </UTabs> -->
+
+                <div class="block mt-5">
+                    <span>Информация</span>
+                    <div v-if="companies">
+                        <UIcon name="i-material-symbols-location-away" class="w-6 h-6" dynamic />
+                        <span>Кол-во предприятий</span>
+                        {{ countCompanies }}
+                    </div>
+                    <div v-if="countProgs > 0">
+                        <UIcon name="i-material-symbols-finance-mode" class="w-6 h-6" dynamic />
+                        <span>Кол-во доступных госпрограмм</span>
+                        {{ countProgs }}
+                    </div>
+                </div>
+            </div>
+            <UTabs :items="items" class="w-full row-start-1 col-span-4">
+                <template #item="{ item, selected }">
+                    <div v-if="item.key == 'companies'">
+                        <div class="">
+                            <UCard v-for="company in companies" class="my-2">
+                                <template #header>
+                                    {{ company.name }}
+                                </template>
+                            </UCard>
+                        </div>
+                    </div>
+                </template>
+        </UTabs>
+        </div>
+        
     </UContainer>
 </template>

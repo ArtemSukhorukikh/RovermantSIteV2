@@ -18,18 +18,18 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const company = await prisma.company.findMany({
+    const companies = await prisma.company.findMany({
         include:{
             user: true,
         },
         where: {userId: Number(id) }
     })
 
-    if (company === null) {
+    if (companies === null) {
         throw createError({
             status: 404,
             message: 'Предприятие не найдено'
         })
     }
-    return {company: company}
+    return companies
 })

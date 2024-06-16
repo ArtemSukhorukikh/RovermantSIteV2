@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
             message: 'id не найден'
         })
     }
-    const user = prisma.user.findFirst({where: {id: Number(id)}})
+    const user = await prisma.user.findFirst({where: {id: Number(id)}})
 
     if (user === null) {
         throw createError({
@@ -17,5 +17,5 @@ export default defineEventHandler(async (event) => {
             message: 'Пользователь не найден'
         })
     }
-    return {user: user}
+    return user
 })

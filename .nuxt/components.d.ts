@@ -1,6 +1,7 @@
 
 interface _GlobalComponents {
       'CompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+    'CompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'FullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
     'UserCompanies': typeof import("../components/UserCompanies.vue")['default']
     'UserPage': typeof import("../components/UserPage.vue")['default']
@@ -80,6 +81,7 @@ interface _GlobalComponents {
     'UModals': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyCompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+    'LazyCompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'LazyFullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
     'LazyUserCompanies': typeof import("../components/UserCompanies.vue")['default']
     'LazyUserPage': typeof import("../components/UserPage.vue")['default']
@@ -173,6 +175,7 @@ declare module 'vue' {
 }
 
 export const CompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
+export const CompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']
 export const FullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
 export const UserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const UserPage: typeof import("../components/UserPage.vue")['default']
@@ -252,6 +255,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const UModals: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyCompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
+export const LazyCompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']
 export const LazyFullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
 export const LazyUserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const LazyUserPage: typeof import("../components/UserPage.vue")['default']

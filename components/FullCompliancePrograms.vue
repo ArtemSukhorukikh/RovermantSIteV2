@@ -1,11 +1,11 @@
 <script setup>
 const props = defineProps(['statePrograms', 'userId'])
 
-const resource = ['Новость', 'Постановление правительства']
+const resource = ['Все', 'Новость', 'Постановление правительства']
 
 let stateProgramsFiltered = ref(null)
 let filterName = ref(null)
-let filterResource = ref(null)
+let filterResource = ref(resource[0])
 
 stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
 
@@ -33,20 +33,26 @@ function getFullComplianceCompaniesName(stateProgram) {
     return dataForCard
 }
 watch(filterName, (newValue) => {
+    console.log('name')
     stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
-    stateProgramsFiltered.value = stateProgramsFiltered.filter(program => program.name.includes(newValue))
+    if (newValue !== '') {
+        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.name.includes(newValue))
+    }
 
-    if (filterResource) {
-        stateProgramsFiltered.value = stateProgramsFiltered.filter(program => program.resource.includes(filterResource))
+    if (filterResource.value && filterResource.value !== resource[0]) {
+        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.resource.includes(filterResource))
     }
 })
 
 watch(filterResource, (newValue) => {
+    console.log('resorse')
     stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
-    stateProgramsFiltered.value = stateProgramsFiltered.filter(program => program.resource.includes(newValue))
+    if (newValue !== resource[0]) {
+        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.resource.includes(newValue))
+    }
 
-    if (filterName) {
-        stateProgramsFiltered.value = stateProgramsFiltered.filter(program => program.name.includes(filterName))
+    if (filterName.value) {
+        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.name.includes(filterName))
     }
 })
 
@@ -54,10 +60,15 @@ watch(filterResource, (newValue) => {
 
 <template>
     <div class="">
-        <div class="flex justify-between">
+        <div class="flex justify-between items-end">
             <UInput v-model:model-value="filterName" color="blue" variant="outline"
                 placeholder="Поиск по названию..." />
-            <USelect v-model="filterResource" color="blue" variant="outline" :options="resource" />
+            <div>
+                <span class="font-extralight">Тип ресурса:</span>
+                <USelect v-model="filterResource" color="blue" variant="outline" placeholder="Поиск по типу ресурса..."
+                    trailing :options="resource" />
+            </div>
+
         </div>
         <UCard v-for="stateProgram in stateProgramsFiltered" class="my-2">
             <template #header>

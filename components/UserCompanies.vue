@@ -9,10 +9,16 @@ function createdNewCompany() {
 }
 
 const modal = ref(null)
+const modalFullInfo = ref(null)
 
 function openModal() {
     console.log(modal.value)
     modal.value.open()
+}
+
+function openFullModal(company) {
+    console.log(company)
+    modalFullInfo.value.open(company)
 }
 
 function countFullCompliancePrograms(company) {
@@ -39,7 +45,9 @@ watch(filterName, (newValue) => {
     <div class="">
         <UCard v-for="company in companiesFiltered" class="my-2">
             <template #header>
-                <UButton color="black" variant="link"><span class="font-bold">{{ company.name }}</span></UButton>
+                <UButton color="black" variant="link" @click="openFullModal(company)"><span class="font-bold">{{
+                    company.name
+                        }}</span></UButton>
             </template>
             <div class="flex flex-col">
                 <span class="font-thin">Доступных для участия госпрограмм:</span>
@@ -55,4 +63,5 @@ watch(filterName, (newValue) => {
         </UCard>
     </div>
     <CompanyFormModal @create-new-company="createdNewCompany" @close-modal="isOpen = false" ref="modal" />
+    <CompanyFullInfo ref="modalFullInfo" />
 </template>

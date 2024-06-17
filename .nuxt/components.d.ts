@@ -1,8 +1,10 @@
 
 interface _GlobalComponents {
-      'CompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+      'CompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
+    'CompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
     'CompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'FullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
+    'StateProgramInfo': typeof import("../components/StateProgramInfo.vue")['default']
     'UserCompanies': typeof import("../components/UserCompanies.vue")['default']
     'UserPage': typeof import("../components/UserPage.vue")['default']
     'UAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
@@ -80,9 +82,11 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'UModals': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyCompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
+      'LazyCompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
+    'LazyCompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
     'LazyCompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'LazyFullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
+    'LazyStateProgramInfo': typeof import("../components/StateProgramInfo.vue")['default']
     'LazyUserCompanies': typeof import("../components/UserCompanies.vue")['default']
     'LazyUserPage': typeof import("../components/UserPage.vue")['default']
     'LazyUAccordion': typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
@@ -174,9 +178,11 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const CompanyExtractData: typeof import("../components/CompanyExtractData.vue")['default']
 export const CompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
 export const CompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']
 export const FullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
+export const StateProgramInfo: typeof import("../components/StateProgramInfo.vue")['default']
 export const UserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const UserPage: typeof import("../components/UserPage.vue")['default']
 export const UAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']
@@ -254,9 +260,11 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const UModals: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const LazyCompanyExtractData: typeof import("../components/CompanyExtractData.vue")['default']
 export const LazyCompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
 export const LazyCompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']
 export const LazyFullCompliancePrograms: typeof import("../components/FullCompliancePrograms.vue")['default']
+export const LazyStateProgramInfo: typeof import("../components/StateProgramInfo.vue")['default']
 export const LazyUserCompanies: typeof import("../components/UserCompanies.vue")['default']
 export const LazyUserPage: typeof import("../components/UserPage.vue")['default']
 export const LazyUAccordion: typeof import("../node_modules/@nuxt/ui/dist/runtime/components/elements/Accordion.vue")['default']

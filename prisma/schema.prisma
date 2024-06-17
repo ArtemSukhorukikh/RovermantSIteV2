@@ -36,7 +36,7 @@ model Company {
   description String
   data Json?
   userId Int
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   conditions CompanyCondition[]
 }
 
@@ -66,8 +66,8 @@ model Condition {
 model CompanyCondition {
   companyId   Int
   conditionId Int
-  company     Company      @relation(fields: [companyId], references: [id])
-  condition   Condition    @relation(fields: [conditionId], references: [id])
+  company     Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  condition   Condition    @relation(fields: [conditionId], references: [id], onDelete: Cascade)
 
   @@id([companyId, conditionId])
 }

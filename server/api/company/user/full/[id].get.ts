@@ -29,13 +29,6 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  if (userCompanies.length === 0) {
-    throw createError({
-      status: 400,
-      message: "Предприятия не найдены",
-    });
-  }
-
   // Получаем все программы
   const programs = await prisma.stateProgram.findMany({
     include: {

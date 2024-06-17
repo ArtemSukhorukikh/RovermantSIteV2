@@ -6,8 +6,9 @@ const resource = ['Все', 'Новость', 'Постановление пра
 let stateProgramsFiltered = ref(null)
 let filterName = ref(null)
 let filterResource = ref(resource[0])
+let modalProgram = ref(null)
 
-stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
+stateProgramsFiltered.value = props.statePrograms?.filter(program => program.fullComplianceCompanies.length > 0)
 
 function getFullComplianceCompaniesName(stateProgram) {
     console.log(stateProgram.fullComplianceCompanies.length)
@@ -34,25 +35,25 @@ function getFullComplianceCompaniesName(stateProgram) {
 }
 watch(filterName, (newValue) => {
     console.log('name')
-    stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
+    stateProgramsFiltered.value = props.statePrograms?.filter(program => program.fullComplianceCompanies.length > 0)
     if (newValue !== '') {
-        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.name.includes(newValue))
+        stateProgramsFiltered.value = stateProgramsFiltered.value?.filter(program => program.name.includes(newValue))
     }
 
     if (filterResource.value && filterResource.value !== resource[0]) {
-        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.resource.includes(filterResource))
+        stateProgramsFiltered.value = stateProgramsFiltered.value?.filter(program => program.resource.includes(filterResource))
     }
 })
 
 watch(filterResource, (newValue) => {
     console.log('resorse')
-    stateProgramsFiltered.value = props.statePrograms.filter(program => program.fullComplianceCompanies.length > 0)
+    stateProgramsFiltered.value = props.statePrograms?.filter(program => program.fullComplianceCompanies.length > 0)
     if (newValue !== resource[0]) {
-        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.resource.includes(newValue))
+        stateProgramsFiltered.value = stateProgramsFiltered.value?.filter(program => program.resource.includes(newValue))
     }
 
     if (filterName.value) {
-        stateProgramsFiltered.value = stateProgramsFiltered.value.filter(program => program.name.includes(filterName))
+        stateProgramsFiltered.value = stateProgramsFiltered.value?.filter(program => program.name.includes(filterName))
     }
 })
 
@@ -73,7 +74,9 @@ watch(filterResource, (newValue) => {
         <UCard v-for="stateProgram in stateProgramsFiltered" class="my-2">
             <template #header>
                 <div class="flex justify-between">
-                    <UButton color="black" variant="link"><span class="font-bold">{{ stateProgram.name }}</span>
+                    <UButton color="black" variant="link"><span class="font-bold"
+                            @click="modalProgram.open(stateProgram, 'allWithCompany')">{{ stateProgram.name
+                            }}</span>
                     </UButton>
                     <UBadge color="blue" variant="solid">{{ stateProgram.resource }}</UBadge>
                 </div>
@@ -84,4 +87,5 @@ watch(filterResource, (newValue) => {
             </div>
         </UCard>
     </div>
+    <StateProgramInfo ref="modalProgram" :userId="props.userId" />
 </template>

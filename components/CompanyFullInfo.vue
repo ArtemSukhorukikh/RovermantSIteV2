@@ -9,15 +9,6 @@ let modalProgram = ref(null)
 const items = [
     [
         {
-            label: "Cформировать отчёт",
-            icon: "i-heroicons-pencil-square-20-solid",
-            click: () => {
-                console.log("Report");
-            },
-        },
-    ],
-    [
-        {
             label: "Редактировать",
             icon: "i-heroicons-pencil-square-20-solid",
             click: () => {
@@ -70,8 +61,7 @@ defineExpose({
                 </div>
             </template>
             <div>
-                <span class="text-2xl">Извлеченный данные</span>
-                <div></div>
+                <CompanyExtractData :company="company" />
             </div>
             <div>
                 <span class="text-2xl">Госпрограммы доступные для участия</span>

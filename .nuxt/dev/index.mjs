@@ -1319,6 +1319,7 @@ const _id__get$6 = defineEventHandler(async (event) => {
   for (const company of userCompanies) {
     const fullCompliancePrograms = [];
     const partialCompliancePrograms = [];
+    const nonCompliancePrograms = [];
     for (const program of programs) {
       const programConditionIds = program.conditions.map((cond) => cond.id);
       const companyConditionIds = company.conditions.map(
@@ -1345,12 +1346,18 @@ const _id__get$6 = defineEventHandler(async (event) => {
             (cond) => nonMatchingConditionIds.includes(cond.id)
           )
         });
+      } else {
+        nonCompliancePrograms.push({
+          ...program,
+          conditions: program.conditions
+        });
       }
     }
     companiesCompliance.push({
       ...company,
       fullCompliancePrograms,
-      partialCompliancePrograms
+      partialCompliancePrograms,
+      nonCompliancePrograms
     });
   }
   return companiesCompliance;
@@ -1575,6 +1582,7 @@ const _id__get$2 = defineEventHandler(async (event) => {
     const programConditionIds = program.conditions.map((cond) => cond.id);
     const fullComplianceCompanies = [];
     const partialComplianceCompanies = [];
+    const nonComplianceCompanies = [];
     for (const company of companies) {
       const companyConditionIds = company.conditions.map(
         (cond) => cond.conditionId
@@ -1597,12 +1605,15 @@ const _id__get$2 = defineEventHandler(async (event) => {
             (cond) => nonMatchingConditionIds.includes(cond.id)
           )
         });
+      } else {
+        nonComplianceCompanies.push(company);
       }
     }
     return {
       ...program,
       fullComplianceCompanies,
-      partialComplianceCompanies
+      partialComplianceCompanies,
+      nonComplianceCompanies
     };
   });
   return programsWithEligibleCompanies;

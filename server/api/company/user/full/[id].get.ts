@@ -41,6 +41,7 @@ export default defineEventHandler(async (event) => {
   for (const company of userCompanies) {
     const fullCompliancePrograms = [];
     const partialCompliancePrograms = [];
+    const nonCompliancePrograms = [];
 
     for (const program of programs) {
       const programConditionIds = program.conditions.map((cond) => cond.id);
@@ -72,6 +73,12 @@ export default defineEventHandler(async (event) => {
             nonMatchingConditionIds.includes(cond.id)
           ),
         });
+      } else {
+        // Полное несоответствие
+        nonCompliancePrograms.push({
+          ...program,
+          conditions: program.conditions,
+        });
       }
     }
 
@@ -79,6 +86,7 @@ export default defineEventHandler(async (event) => {
       ...company,
       fullCompliancePrograms,
       partialCompliancePrograms,
+      nonCompliancePrograms,
     });
   }
 

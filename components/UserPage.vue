@@ -98,10 +98,11 @@ const items = [
                 </div>
                 <div v-if="item.key == 'programs'">
                     <FullCompliancePrograms :statePrograms="stateProgramsInfo" :userId="user.id"
-                        @updateCompanies="getUserCompanies" />
+                        @updateCompanies="getUserCompanies" mode="notAll" />
                 </div>
                 <div v-if="item.key == 'programsAll'">
-                    <!-- <UserCompanies :companies="companies" :userId="user.id" @updateCompanies="getUserCompanies" /> -->
+                    <FullCompliancePrograms :statePrograms="stateProgramsInfo" :userId="user.id"
+                        @updateCompanies="getUserCompanies" mode="all" />
                 </div>
             </template>
         </UTabs>

@@ -11,6 +11,12 @@ export default defineEventHandler(async (event) => {
   }
 
   const programs = await prisma.stateProgram.findMany({
+    where: {
+      status: "INDEXED",
+      conditions: {
+        some: {}
+      }
+    },
     include: {
       conditions: true,
     },

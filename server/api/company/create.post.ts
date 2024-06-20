@@ -21,5 +21,10 @@ export default defineEventHandler(async (event) => {
     },
   });
 
+  await $fetch("http://127.0.0.1:5000/extractData", {
+    method: "POST",
+    body: {"description": company.description, "companyId": company.id},
+  });
+
   return { company: company };
 });

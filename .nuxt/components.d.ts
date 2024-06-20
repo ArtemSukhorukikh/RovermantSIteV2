@@ -1,6 +1,7 @@
 
 interface _GlobalComponents {
-      'CompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
+      'AdminPage': typeof import("../components/AdminPage.vue")['default']
+    'CompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
     'CompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
     'CompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'FullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
@@ -82,7 +83,8 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'UModals': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
     'USlideovers': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyCompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
+      'LazyAdminPage': typeof import("../components/AdminPage.vue")['default']
+    'LazyCompanyExtractData': typeof import("../components/CompanyExtractData.vue")['default']
     'LazyCompanyFormModal': typeof import("../components/CompanyFormModal.vue")['default']
     'LazyCompanyFullInfo': typeof import("../components/CompanyFullInfo.vue")['default']
     'LazyFullCompliancePrograms': typeof import("../components/FullCompliancePrograms.vue")['default']
@@ -178,6 +180,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const AdminPage: typeof import("../components/AdminPage.vue")['default']
 export const CompanyExtractData: typeof import("../components/CompanyExtractData.vue")['default']
 export const CompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
 export const CompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']
@@ -260,6 +263,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const UModals: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const USlideovers: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const LazyAdminPage: typeof import("../components/AdminPage.vue")['default']
 export const LazyCompanyExtractData: typeof import("../components/CompanyExtractData.vue")['default']
 export const LazyCompanyFormModal: typeof import("../components/CompanyFormModal.vue")['default']
 export const LazyCompanyFullInfo: typeof import("../components/CompanyFullInfo.vue")['default']

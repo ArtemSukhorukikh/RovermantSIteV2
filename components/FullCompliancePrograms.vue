@@ -188,7 +188,7 @@ const json_data = computed(() => {
         stateProgramsFiltered.value[i].fullComplianceCompanies[j].name;
       jsonCompany.goodCondutions = stateProgramsFiltered.value[
         i
-      ].fullComplianceCompanies[j].matchingConditions.map(
+      ].fullComplianceCompanies[j].conditions.map(
         (obj) => obj.condition.condition
       );
       result.push(jsonCompany);
@@ -226,6 +226,7 @@ const json_data = computed(() => {
       jsonCompany.nameProgram = stateProgramsFiltered.value[i].name;
       jsonCompany.name =
         stateProgramsFiltered.value[i].nonComplianceCompanies[j].name;
+      console.log(stateProgramsFiltered.value[i]);
       jsonCompany.badConditions = stateProgramsFiltered.value[i].conditions.map(
         (obj) => obj.condition
       );
@@ -285,9 +286,8 @@ const json_data = computed(() => {
               >{{ stateProgram.name }}</span
             >
           </UButton>
-          <UBadge color="blue" variant="solid">{{
-            stateProgram.resource
-          }}</UBadge>
+          <UBadge v-if="stateProgram.resource == 'program'" color="blue" variant="solid">Постановление правительства</UBadge>
+          <UBadge v-else color="blue" variant="solid">Новость</UBadge>
         </div>
       </template>
       <div

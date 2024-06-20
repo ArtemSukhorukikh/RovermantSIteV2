@@ -7,10 +7,15 @@ const openSideBar = ref(false)
 const props = defineProps(['userId'])
 
 function open(stateProgram, modeData) {
-    console.log(modeData)
+    console.log(stateProgram)
     program.value = stateProgram
     openModal.value = true
     mode.value = modeData
+}
+
+function getPath(program) {
+    console.log(program)
+    return program.path ? '../static/userFiles/' + program.path : program.url
 }
 
 function openCompanySideBar(companyData) {
@@ -72,7 +77,7 @@ defineExpose({
             </div>
             <template #footer>
                 <UButton class="mr-12" color="indigo" variant="outline">
-                    Открыть источник
+                    <a :href="getPath(program)" target="_blank" >Открыть источник</a>
                 </UButton>
             </template>
         </UCard>

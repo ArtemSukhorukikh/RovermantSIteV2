@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
     const stateProg = await prisma.stateProgram.findFirst({
         where: {
-            id: body.programId
+            id:  Number(body.programId)
         }
     })
 
@@ -24,10 +24,15 @@ export default defineEventHandler(async (event) => {
         })
     }
 
-    const condition = prisma.condition.create({data: {
-        programId: stateProg.id,
-        condition: body.condition
-    }})
+    await prisma.stateProgram.update({where: {id: stateProg.id}, data: {status: 'INDEXED'}})
+    
+
+    const condition = await prisma.condition.createMany({data: body.conditions.map((cond: string) => { 
+        return {
+            programId: stateProg.id,
+            condition: cond
+        }
+    })})
 
     return condition
 })

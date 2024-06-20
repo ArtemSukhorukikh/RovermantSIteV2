@@ -41,10 +41,10 @@ const login = async () => {
 </template>
 
 <style>
-html {
+/* html {
     background-image: url('/img/house.png');
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: auto;
-}
+} */
 </style>

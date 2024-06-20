@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "G:/ProgramsSiteV2/node_modules/nuxt/dist/app/entry.js": {
+  "D:/Progs/RovermantSIteV2/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "G:/ProgramsSiteV2/node_modules/nuxt/dist/app/entry.js"
+    "file": "D:/Progs/RovermantSIteV2/node_modules/nuxt/dist/app/entry.js"
   }
 }

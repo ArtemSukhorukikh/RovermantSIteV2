@@ -70,7 +70,6 @@ const json_fields = {
     'Недоступные госпрораммы': 'programsNotAvailable'
 }
 const json_data = computed(() => {
-    console.log(companiesFiltered.value[0].name)
     let result = []
     for (let i = 0; i < companiesFiltered.value.length; i++) {
         let jsonCompany = {}

@@ -4,7 +4,7 @@ declare module 'nitropack' {
   type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
   interface InternalApi {
     '/api/combineConditionals': {
-      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../.../../server/api/combineConditionals.get').default>>>>
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/combineConditionals.get').default>>>>
     }
     '/api/company/:id': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/company/[id].get').default>>>>

@@ -15,7 +15,7 @@ function open(stateProgram, modeData) {
 
 function getPath(program) {
     console.log(program)
-    return program.path ? '../static/userFiles/' + program.path : program.url
+    return program.path ? '/userFiles/' + program.path : program.url
 }
 
 function openCompanySideBar(companyData) {

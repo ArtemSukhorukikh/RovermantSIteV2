@@ -15,6 +15,19 @@ export default defineEventHandler(async (event) => {
 
   let company = await prisma.company.findFirst({ where: { id: body.id } });
 
+  if (company?.description === body.description) {
+    company = await prisma.company.update({
+      where: {
+        id: body.id,
+      },
+      data: {
+        name: body.name,
+      },
+    });
+
+    return company
+  }
+
   if (company === null) {
     throw createError({
       status: 404,
@@ -42,6 +55,11 @@ export default defineEventHandler(async (event) => {
     include: {
       conditions: true,
     },
+  });
+
+  await $fetch("http://127.0.0.1:5000/extractData", {
+    method: "POST",
+    body: {"description": company.description, "companyId": company.id},
   });
 
   return { company: company };

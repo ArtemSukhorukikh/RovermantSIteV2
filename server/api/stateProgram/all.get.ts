@@ -6,6 +6,9 @@ export default defineEventHandler(async (event) => {
     include: {
       conditions: true,
     },
+    orderBy: {
+      id: "asc",
+    }
   });
 
   return statePrograms;

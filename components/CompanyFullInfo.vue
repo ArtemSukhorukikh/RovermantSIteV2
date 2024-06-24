@@ -91,6 +91,17 @@ defineExpose({
             </div>
         </UCard>
         <UCard v-else>
+            <template #header>
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+                        <span class="font-medium text-3xl">{{ company.name }}</span>
+                    </h3>
+                    <div class="flex items-center">
+                        <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
+                            @click="modalOpen = false" />
+                    </div>
+                </div>
+            </template>
             <UDivider v-if="company.data == null || company.partialCompliancePrograms.length == 0"
                 label="Данное предприятие еще не было проанализировано системой" size="lg" />
         </UCard>

@@ -74,7 +74,7 @@ const json_data = computed(() => {
     for (let i = 0; i < companiesFiltered.value.length; i++) {
         let jsonCompany = {}
         jsonCompany.name = companiesFiltered.value[i].name
-        jsonCompany.data = JSON.stringify(companiesFiltered.value[i].data)
+        jsonCompany.data = companiesFiltered.value[i].data.map(item => `${item.label}: ${item.value}`);
         jsonCompany.description = companiesFiltered.value[i].description
         console.log(companiesFiltered.value[i].fullComplianceCompanies)
         jsonCompany.programs = companiesFiltered.value[i].fullCompliancePrograms.map(obj => obj.name).join(',');

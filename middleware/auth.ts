@@ -3,9 +3,10 @@ import { useAuthStore } from "~/store/auth";
 export default defineNuxtRouteMiddleware(async (to) => {
   console.log("auth.ts");
   const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
-  const { id } = storeToRefs(useAuthStore());
-  const user = await $fetch(`/api/user/${id}`);
+  // const { id } = storeToRefs(useAuthStore());
+  // const user = await $fetch(`/api/user/${id.value}`);
   const token = useCookie("token"); // get token from cookies
+  const path = to?.name
 
   if (token.value) {
     // check if value exists
@@ -18,9 +19,9 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return navigateTo("/");
   }
 
-  if (to.params.id !== id.value && user.role !== "ADMIN") {
-    return navigateTo("/");
-  }
+  // if (to?.name == 'profile-id' && to.params.id !== id.value && user.role !== "ADMIN") {
+  //   return navigateTo("/");
+  // }
 
   // if token doesn't exist redirect to log in
   if (!token.value && to?.name !== "login") {

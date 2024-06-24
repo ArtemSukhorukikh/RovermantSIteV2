@@ -45,7 +45,7 @@ function openEditForm(stateProgram) {
   openCreateModal.value = true;
   isOpenEditForm.value = true;
   selectedId.value = stateProgram.id;
-  showAddFile.value = true;
+  showAddFile.value = false;
 }
 
 function closeModal() {
@@ -55,9 +55,15 @@ function closeModal() {
     path: undefined,
     url: undefined,
   });
-  showAddFile.value = false;
+  showAddFile.value = true;
   isOpenEditForm.value = false;
   selectedId.value = null;
+}
+
+function editFiles() {
+  showAddFile.value = true
+  state.path=undefined
+  state.url=undefined
 }
 
 const validate = (state) => {
@@ -103,7 +109,7 @@ async function onSubmit() {
     data.url = state.url;
   }
 
-  if (isOpenEditForm) {
+  if (isOpenEditForm.value) {
     data.needReindex = needReindex.value;
     data.id = selectedId.value;
     const result = await $fetch("/api/stateProgram/update", {
@@ -206,7 +212,7 @@ function opemProgramModal(program, mode) {
         <tr v-for="item in programs.value" class="bg-white">
           <td class="py-2 px-4 border-b border-gray-200">{{ item.id }}</td>
           <td class="py-2 px-4 border-b border-gray-200">
-            <Ulink
+            <ULink
               active-class="text-primary"
               inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
               @click="opemProgramModal(item, 'all')"
@@ -277,7 +283,7 @@ function opemProgramModal(program, mode) {
           />
         </UFormGroup>
 
-        <UFormGroup v-if="!showAddFile" label="Файл" name="path">
+        <UFormGroup v-if="showAddFile" label="Файл" name="path">
           <input
             type="file"
             @input="addFile"
@@ -285,16 +291,16 @@ function opemProgramModal(program, mode) {
           />
         </UFormGroup>
 
-        <UFormGroup v-if="!showAddFile" label="Url файла" name="url">
+        <UFormGroup v-if="showAddFile" label="Url файла" name="url">
           <UInput v-model="state.url" />
         </UFormGroup>
 
         <UFormGroup
-          v-if="showAddFile"
+          v-if="!showAddFile"
           label="Изменить данные файла?"
           name="url"
         >
-          <UButton label="Да" @click="showAddFile = false" />
+          <UButton label="Да" @click="editFiles" />
         </UFormGroup>
 
         <UButton type="submit"> Сохранить </UButton>

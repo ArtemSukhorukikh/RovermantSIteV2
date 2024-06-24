@@ -175,7 +175,6 @@ const json_fields = {
 const json_data = computed(() => {
   let result = [];
   for (let i = 0; i < stateProgramsFiltered.value.length; i++) {
-    console.log("data");
     let jsonCompany = {};
 
     for (
@@ -183,6 +182,7 @@ const json_data = computed(() => {
       j < stateProgramsFiltered.value[i].fullComplianceCompanies.length;
       j++
     ) {
+      jsonCompany = {};
       jsonCompany.nameProgram = stateProgramsFiltered.value[i].name;
       jsonCompany.name =
         stateProgramsFiltered.value[i].fullComplianceCompanies[j].name;
@@ -194,13 +194,14 @@ const json_data = computed(() => {
       result.push(jsonCompany);
     }
 
-    jsonCompany = {};
+    
 
     for (
       let j = 0;
       j < stateProgramsFiltered.value[i].partialComplianceCompanies.length;
       j++
     ) {
+      jsonCompany = {};
       jsonCompany.nameProgram = stateProgramsFiltered.value[i].name;
       jsonCompany.name =
         stateProgramsFiltered.value[i].partialComplianceCompanies[j].name;
@@ -223,10 +224,10 @@ const json_data = computed(() => {
       j < stateProgramsFiltered.value[i].nonComplianceCompanies.length;
       j++
     ) {
+      jsonCompany = {};
       jsonCompany.nameProgram = stateProgramsFiltered.value[i].name;
       jsonCompany.name =
         stateProgramsFiltered.value[i].nonComplianceCompanies[j].name;
-      console.log(stateProgramsFiltered.value[i]);
       jsonCompany.badConditions = stateProgramsFiltered.value[i].conditions.map(
         (obj) => obj.condition
       );

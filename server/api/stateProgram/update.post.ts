@@ -10,6 +10,7 @@ export default defineEventHandler(async (event) => {
 
   const formData = new FormData();
 
+
   state = await prisma.stateProgram.update({
     where: {
       id: body.id,
@@ -21,6 +22,20 @@ export default defineEventHandler(async (event) => {
   });
 
   if (body.needReindex) {
+    const conditions = await prisma.condition.findMany({
+      where: {
+        programId: state.id
+      }
+    })
+  
+    conditions.forEach(async (condition) => {
+      await prisma.condition.delete({
+        where: {
+          id: condition.id
+        }
+      })
+    })
+
     // console.log(body.path);
     if (body.path) {
       const path = await storeFileLocally(
